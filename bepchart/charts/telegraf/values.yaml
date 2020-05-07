@@ -122,12 +122,15 @@ config:
           - "http://influxdb.monitoring.svc:8086"
         database: "telegraf"
   inputs:
-    - statsd:
-        service_address: ":8125"
-        percentiles:
-          - 50
-          - 95
-          - 99
-        metric_separator: "_"
-        allowed_pending_messages: 10000
-        percentile_limit: 1000
+    # - statsd:
+    #     service_address: ":8125"
+    #     percentiles:
+    #       - 50
+    #       - 95
+    #       - 99
+    #     metric_separator: "_"
+    #     allowed_pending_messages: 10000
+    #     percentile_limit: 1000
+    - kubernetes:
+        url: ":http://192.168.1.20:10255"
+
