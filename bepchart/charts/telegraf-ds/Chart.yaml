@@ -8,14 +8,14 @@ keywords:
 - collector
 - timeseries
 - influxdata
-- influxdb
-- agent
 maintainers:
 - email: rawkode@influxdata.com
   name: rawkode
 - email: giacomo@influxdata.com
   name: gitirabassi
-- email: naseem@transit.app
+- email: naseemkullah@gmail.com
   name: naseemkullah
-name: telegraf
-version: 1.7.10
+- email: contact@cerenit.fr
+  name: nsteinmetz
+name: telegraf-ds
+version: 1.0.6
