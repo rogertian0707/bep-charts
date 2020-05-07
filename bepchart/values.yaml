@@ -1,66 +1,15 @@
 ## ------------------------------------------------------
-## grafana
-## ------------------------------------------------------
-grafana:
-  enabled: true
-  image: grafana/grafana
-  imageTag: 5.4.1
-  #  - name: "regcred"
-  heapOptions: "-Xms512M -Xmx512M"
-  persistence:
-    enabled: true
-    ## The size of the PersistentVolume to allocate to each Zookeeper Pod in the StatefulSet. For
-    ## production servers this number should likely be much larger.
-    ##
-    ## Size for Data dir, where ZooKeeper will store the in-memory database snapshots.
-    dataDirSize: 10Gi
-    # dataDirStorageClass: ""
-
-    ## Size for data log dir, which is a dedicated log device to be used, and helps avoid competition between logging and snaphots.
-    dataLogDirSize: 10Gi
-    # dataLogDirStorageClass: ""
-    resources: {}
-## ------------------------------------------------------
-## influxdb
-## ------------------------------------------------------
-influxdb:
-  enabled: true
-  image: influxdata/influxdb
-  imageTag: 5.4.1
-  #  - name: "regcred"
-  heapOptions: "-Xms512M -Xmx512M"
-  persistence:
-    enabled: true
-    ## The size of the PersistentVolume to allocate to each Zookeeper Pod in the StatefulSet. For
-    ## production servers this number should likely be much larger.
-    ##
-    ## Size for Data dir, where ZooKeeper will store the in-memory database snapshots.
-    dataDirSize: 10Gi
-    # dataDirStorageClass: ""
-
-    ## Size for data log dir, which is a dedicated log device to be used, and helps avoid competition between logging and snaphots.
-    dataLogDirSize: 10Gi
-    # dataLogDirStorageClass: ""
-    resources: {}
-## ------------------------------------------------------
 ## telegraf
 ## ------------------------------------------------------
-telegraf:
-  enabled: true
-  image: influxdata/telegraf
-  imageTag: 5.4.1
-  #  - name: "regcred"
-  heapOptions: "-Xms512M -Xmx512M"
-  persistence:
-    enabled: true
-    ## The size of the PersistentVolume to allocate to each Zookeeper Pod in the StatefulSet. For
-    ## production servers this number should likely be much larger.
-    ##
-    ## Size for Data dir, where ZooKeeper will store the in-memory database snapshots.
-    dataDirSize: 10Gi
-    # dataDirStorageClass: ""
-
-    ## Size for data log dir, which is a dedicated log device to be used, and helps avoid competition between logging and snaphots.
-    dataLogDirSize: 10Gi
-    # dataLogDirStorageClass: ""
-    resources: {}
+telegraf-ds:
+  outputs:
+    - influxdb:
+        urls:
+          - "http://influxdb:8086"
+        database: "telegraf"
+        retention_policy: ""
+        timeout: "5s"
+        username: ""
+        password: ""
+        user_agent: "telegraf"
+        insecure_skip_verify: false
