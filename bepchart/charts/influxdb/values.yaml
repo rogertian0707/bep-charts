@@ -85,13 +85,11 @@ enterprise:
     ## Configure resource requests and limits
     ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
     resources: {}
-  #  resources:
-  #    requests:
-  #      memory: 512Mi
-  #      cpu: 2
-  #    limits:
-  #      memory: 1Gi
-  #      cpu: 4
+   # resources:
+   #   requests:
+   #     memory: 512Mi
+   #   limits:
+   #     memory: 1Gi
 
 ## Create default user through Kubernetes job
 ## Defaults indicated below

@@ -1,15 +1,16 @@
 ## ------------------------------------------------------
 ## telegraf
 ## ------------------------------------------------------
-telegraf-ds:
-  outputs:
-    - influxdb:
-        urls:
-          - "http://influxdb:8086"
-        database: "telegraf"
-        retention_policy: ""
-        timeout: "5s"
-        username: ""
-        password: ""
-        user_agent: "telegraf"
-        insecure_skip_verify: false
+# telegraf-ds:
+# config:
+#   outputs:
+#     - influxdb:
+#         urls:
+#           - "http://bep-influxdb-0:8086"
+#         database: "telegraf"
+#         retention_policy: ""
+#         timeout: "5s"
+#         username: ""
+#         password: ""
+#         user_agent: "telegraf"
+#         insecure_skip_verify: false
